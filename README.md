@@ -1,21 +1,35 @@
 # vue-douban
+Vue全家桶仿写移动版豆瓣网页。
+## 预览
+在线预览地址：www.xxxx.com 未考虑兼容性问题，最好在Chrome浏览器下查看。
+## 技术栈
+### 已使用
+- Vue2.0 构建前端页面
+- Vuex 不同组件间数据共享
+- Vue-router 单页应用路由切换
+- axios 向后端发起请求
+- Express 改造了开发服务器，代理浏览器发出的网络请求
+- ES6、ES7 客户端、服务端都使用ES6  使用promise/async/await 处理异步
+- Webpack 项目打包工具
+- Stylus 预处理css
+- CSS3 过渡、动画、转换等
+- Flex flex弹性布局，响应不同尺寸的屏幕
+- 响应式设计 宽、高、字体等使用单位vw，响应不同尺寸的屏幕
 
-> A Vue.js project
+### 计划使用
+- BetterScroll 实现滚动
+- MySql/Mongodb 存放后端数据
+- vueg 实现转场效果
+- Socket.io 实现实时消息推送
+- egg.js 生产环境中替换Express
+- localStorage 本地保存用户信息
 
-## Build Setup
+## 截图
+### 一级页面：
 
-``` bash
-# install dependencies
-npm install
+### 二级页面：
 
-# serve with hot reload at localhost:8080
-npm run dev
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 项目分析
+- 前端： todo
+- 后端： todo
