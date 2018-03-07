@@ -1,14 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Pages from 'components/Pages/Pages'
-import Search from 'components/Search/Search'
-import Home from 'components/Home/Home'
-import Movie from 'components/Movie/Movie'
-import Book from 'components/Book/Book'
-import Status from 'components/Status/Status'
-import Group from 'components/Group/Group'
-import Detail from 'components/Detail/Detail'
+import PagesView from 'components/Pages/PagesView'
+import HomeView from 'components/Home/HomeView'
+import MovieView from 'components/Movie/MovieView'
+import BookView from 'components/Book/BookView'
+import StatusView from 'components/Status/StatusView'
+import GroupView from 'components/Group/GroupView'
+import SubjectView from 'components/Subject/SubjectView'
+import DetailView from 'components/Detail/DetailView'
+import SearchView from 'components/Search/SearchView'
+import LoginView from 'components/Login/LoginView'
+import RegisterView from 'components/Register/RegisterView'
 
 Vue.use(Router)
 
@@ -20,73 +23,73 @@ export default new Router({
     },
     {
       path: '/pages',
-      component: Pages,
+      component: PagesView,
       children: [
         {
           path: '',
-          redirect: 'home'
+          redirect: '/pages/home'
         },
         {
           path: 'home',
-          name: 'Home',
-          component: Home
+          name: 'HomeView',
+          component: HomeView
         },
         {
           path: 'movie',
-          name: 'Movie',
-          component: Movie
+          name: 'MovieView',
+          component: MovieView
         },
         {
           path: 'book',
-          name: 'Book',
-          component: Book
+          name: 'BookView',
+          component: BookView
         },
         {
           path: 'status',
-          name: 'Status',
-          component: Status
+          name: 'StatusView',
+          component: StatusView
         },
         {
           path: 'group',
-          name: 'Group',
-          component: Group
+          name: 'GroupView',
+          component: GroupView
         },
         {
           path: 'detail/:id',
-          name: 'Detail',
-          component: Detail
+          name: 'DetailView',
+          component: DetailView
         }
       ]
     },
     {
-      path: 'pages/:classify/subject/:id',
-      name: 'Subject',
+      path: '/pages/:classify/subject/:id',
+      name: 'SubjectView',
       components: {
-        default: Pages,
-        subject: Subject
+        default: PagesView,
+        subject: SubjectView
       }
     },
     {
       path: '/search',
-      name: 'Search',
+      name: 'SearchView',
       components: {
-        default: Pages,
-        search: Search
+        default: PagesView,
+        search: SearchView
       }
     },
     {
       path: '/login',
-      name: 'Login',
-      component: Login
+      name: 'LoginView',
+      component: LoginView
     },
     {
       path: '/register',
-      name: 'Register',
-      component: Register
+      name: 'RegisterView',
+      component: RegisterView
     },
     {
       path: '*',
-      redirect: '/pages'
+      redirect: '/pages/'
     }
   ]
 })
