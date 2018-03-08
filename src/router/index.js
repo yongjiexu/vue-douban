@@ -65,6 +65,7 @@ export default new Router({
       path: '/pages/:classify/subject/:id',
       name: 'SubjectView',
       components: {
+        //todo 怎么理解？
         default: PagesView,
         subject: SubjectView
       }
