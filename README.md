@@ -7,7 +7,7 @@ Vue全家桶仿写移动版豆瓣网页。
 - Vue2.0 构建前端页面
 - Vuex 不同组件间数据共享
 - Vue-router 单页应用路由切换
-- superagent 向后端发起请求
+- superagent、axios 向后端发起请求
 - Express 改造了开发服务器，代理浏览器发出的网络请求
 - ES6 客户端、服务端都使用ES6  使用promise/async/await 处理异步
 - Webpack 项目打包工具
