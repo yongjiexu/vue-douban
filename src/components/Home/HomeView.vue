@@ -2,15 +2,14 @@
   <div class="home-view has-header">
     <sub-nav mold="quickNav"></sub-nav>
     <list mold="thumbnail" :items="recommendations"></list>
-    <!--<infinite-loading :on-infinite="onInfinite" ref="infiniteLoading">-->
-      <!--<loading slot="spinner"></loading>-->
-    <!--</infinite-loading>-->
+    <infinite-loading :on-infinite="onInfinite">
+      <loading slot="spinner"></loading>
+    </infinite-loading>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
-  import {mapState, mapActions} from 'vuex'
 
   import InfiniteLoading from 'vue-infinite-loading'
   import SubNav from 'base/SubNav/SubNav'
@@ -21,7 +20,8 @@
     name: 'home-view',
     data() {
       return {
-        recommendations: []
+        recommendations: [],
+        requestRecommendationsTimes: 0
       }
     },
     components: {
@@ -30,28 +30,37 @@
       InfiniteLoading,
       Loading
     },
-    computed: {
-      // Getting Vuex State from store/modules/activities
-      ...mapState({
-        events: state => state.activities.events
-      })
-    },
+    computed: {},
     methods: {
       // Using vue-infinite-loading
-      onInfinite() {
+      onInfinite($state) {
         setTimeout(() => {
           this.loadMore()
-          this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded')
+          $state.loaded()
         }, 1000)
+
       },
-      // Dispatching Actions
-      ...mapActions([
-        'loadMore'
-      ])
+      loadMore() {
+        const _this = this
+        let milliSecondsInADay = 86400000
+        let _next_date = new Date(new Date().getTime() - _this.requestRecommendationsTimes * milliSecondsInADay).toLocaleDateString().split('/').join('-')
+        _this.requestRecommendationsTimes++
+        axios.get(`/recommend_feed/`, {
+          params: {
+            next_date: _next_date
+          }
+        })
+          .then(function (response) {
+            _this.recommendations = _this.recommendations.concat(response.data.recommend_feeds)
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      }
     },
     created() {
       const _this = this
-      axios.get('/recommend_feed')
+      axios.get(`/recommend_feed/`)
         .then(function (response) {
           _this.recommendations = response.data.recommend_feeds
           console.log(_this.recommendations)
