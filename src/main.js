@@ -6,8 +6,15 @@ import router from './router'
 import store from './store'
 import vueScrollBehavior from 'vue-scroll-behavior'
 import 'normalize.css'
+import VueLazyload from 'vue-lazyload'
 
-Vue.use(vueScrollBehavior, { router: router })
+Vue.use(vueScrollBehavior, {router: router})
+Vue.use(VueLazyload,{
+  preLoad: 1.3,
+  error: '../static/error',
+  loading: '../static/loading.gif',
+  attempt: 1
+})
 
 /* eslint-disable no-new */
 new Vue({
@@ -15,5 +22,5 @@ new Vue({
   router,
   store,
   template: '<App/>',
-  components: { App }
+  components: {App}
 })

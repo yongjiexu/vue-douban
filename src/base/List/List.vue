@@ -5,7 +5,7 @@
         class="thumbnail"
         :to="{name: 'DetailView', params: { id: item.id }}">
         <div class="content">
-          <img :src="item.target.cover_url" v-if="item.target.cover_url" alt="cover">
+          <img v-lazy="item.target.cover_url" v-if="item.target.cover_url" alt="cover">
           <h3>{{item.title}}</h3>
           <p>{{item.target.desc}}</p>
         </div>
