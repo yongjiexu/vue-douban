@@ -4,6 +4,7 @@
     <div class="navBottom" v-if="mold === 'navBottom'">
       <div class="nav-item">
         <router-link :to="{name: 'RegisterView'}">注册帐号</router-link><!-- replace blank
+        //todo template中的template作用是什么？
         -->
         <template v-if="currentUser.email">
           <a href="#" @click.prevent="logout()">退出登录</a>

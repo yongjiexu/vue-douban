@@ -5,14 +5,14 @@
         class="thumbnail"
         :to="{name: 'DetailView', params: { id: item.id }}">
         <div class="content">
-          <img :src="item.image_hlarge" alt="cover">
+          <img :src="item.target.cover_url" v-if="item.target.cover_url" alt="cover">
           <h3>{{item.title}}</h3>
-          <p>{{item.content | subStr}}</p>
+          <p>{{item.target.desc}}</p>
         </div>
         <div class="author">
-          <span class="name">{{item.category_name}}</span>
-          <span class="label" v-if="item.subcategory_name">
-            本活动来自栏目 {{item.subcategory_name}}
+          <span class="name">by {{item.target.author.name}}</span>
+          <span class="label" v-if="item.theme && item.theme.name">
+            来自栏目 {{item.theme.name}}
           </span>
         </div>
       </router-link>
@@ -80,11 +80,14 @@ export default {
     }
 
     p {
-      line-height: 1.5;
       text-align: justify;
       color: #aaa;
-      font-size: 1.2rem;
+      font-size: 12px;
+      line-height: 1.5;
+      display: -webkit-box;
       overflow: hidden;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
     }
 
     img {

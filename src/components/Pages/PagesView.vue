@@ -12,7 +12,9 @@ import TalionView from 'components/Talion/TalionView'
 
 export default {
   name: 'pages-view',
-  components: { HeaderBar, TalionView },
+  components: {
+    HeaderBar, TalionView
+  },
   data () {
     return {
       talion: ''

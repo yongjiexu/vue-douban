@@ -19,7 +19,8 @@
     "vue-scroll-behavior": "^0.1.6",
     "vuex": "^2.2.1",
     "node-sass": "^4.7.2",
-    "sass-loader": "^6.0.7"
+    "sass-loader": "^6.0.7",
+    "axios": "^0.18.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
