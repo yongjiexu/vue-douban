@@ -11,7 +11,7 @@
           <router-link :to="'subject/' + item.id" append>
             <img v-if="item.cover" :src="item.cover.url" alt="1">
             <span class="title">{{item.title}}</span>
-            <rating :rating="item.rating"></rating>
+            <span class="price">¥ {{item.price}}</span>
           </router-link>
         </li>
       </ul>
@@ -88,6 +88,14 @@ export default {
     word-wrap: normal;
   }
 
+  .price {
+    display: block;
+    color: #aaa;
+    line-height: .94rem;
+    margin-top: .48rem;
+    font-size: 1.152rem;
+  }
+
   li {
     display: inline-block;
     width: 10rem;
@@ -99,7 +107,8 @@ export default {
   }
 
   img {
-    height: 15rem;
+    width: 10rem;
+    height: 14.2854rem;
   }
 }
 

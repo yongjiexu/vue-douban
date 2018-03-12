@@ -13,7 +13,7 @@
       <template v-for="n in gray">
         <span class="star-gray"></span>
       </template>
-      <span class="average">{{rating.average}}</span>
+      <span class="average">{{rating.value}}</span>
     </template>
     <slot name="ratingsCount"></slot>
   </div>
@@ -40,7 +40,7 @@
         return
       }
       let average = this.rating.value
-      this.full = parseInt(average / 2)
+      this.full = ~~(average / 2)
       this.half = average % 2 === 0 ? 0 : 1
       this.gray = 5 - this.full - this.half
     }
