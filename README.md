@@ -38,6 +38,7 @@ Vue全家桶仿写移动版豆瓣网页。
 - 现在网页元素尺寸不够准确，需要修改对应的css部分代码
 - 逐步移除superagent相关代码，统一使用官方推荐的axios
 - 考虑用stylus替代scss
+- 改造vuex相关代码
 
 ## note
 修改了webpack-dev-server/lib/Server.js中的代码，clone后是不能直接运行的
