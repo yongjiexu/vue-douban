@@ -62,11 +62,16 @@ import Loading from 'base/Loading/Loading'
 
 export default {
   name: 'detail-view',
-  components: { Banner, Tags, DownloadApp, Loading },
   data () {
     return {
       showLoading: true
     }
+  },
+  components: {
+    Banner,
+    Tags,
+    DownloadApp,
+    Loading
   },
   filters: {
     toArray (value) {

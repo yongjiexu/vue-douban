@@ -9,9 +9,9 @@
       <ul class="hasCover" v-if="type === 'hasCover'">
         <li v-for="item in items">
           <router-link :to="'subject/' + item.id" append>
-            <img v-if="item.images" :src="item.images.large" alt="">
+            <img v-if="item.cover.url" :src="item.cover.url" alt="1">
             <span class="title">{{item.title}}</span>
-            <rating v-if="item.rating" :rating="item.rating"></rating>
+            <rating :rating="item.rating"></rating>
           </router-link>
         </li>
       </ul>
