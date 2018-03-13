@@ -4,13 +4,13 @@
       <h2>{{title}}</h2>
     </div>
     <ul class="content">
-      <li v-for="item in items.groups">
+      <li v-for="item in items">
         <router-link
           :to="{name: 'SubjectView',
           params: {classify: item.subtype ? item.subtype : 'book',
           id: item.id}}">
           <div class="group-meta">
-            <img v-if="item.avatar" :src="item.avatar" alt="cover">
+            <img :src="item.avatar" alt="cover">
             <div class="group-info">
               <span>{{item.name}}</span>
               <rating v-if="item.rating" :rating="item.rating"></rating>

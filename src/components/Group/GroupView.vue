@@ -1,8 +1,7 @@
 <template>
   <div class="group-view has-header">
     <user-bar></user-bar>
-
-    <group :title="group.name" :items="group" v-for="group in classified_groups">
+    <group :title="group.name" :items="group.groups" v-for="group in classified_groups">
       <a class="list-link" href="#" slot="more">更多相关小组</a>
     </group>
     <download-app></download-app>

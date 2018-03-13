@@ -40,6 +40,6 @@ Vue全家桶仿写移动版豆瓣网页。
 - 考虑用stylus替代scss
 - 改造vuex相关代码
 - 重构BookView，需要重新写html
-
+- 写豆瓣搜索接口
 ## note
 修改了webpack-dev-server/lib/Server.js中的代码，clone后是不能直接运行的
