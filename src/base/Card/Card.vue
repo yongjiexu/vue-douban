@@ -7,27 +7,23 @@
       <a href="#">
         <div class="user-info">
           <strong>
-            豆瓣<span v-if="mold === 'quote'">写了日记</span>
+            {{item.status.author.name}}<span v-if="mold === 'quote'">{{item.status.activity}}</span>
           </strong>
-          <div class="timestamp">2017-03-01 19:30:41</div>
+          <div class="timestamp">{{item.status.create_time}}</div>
         </div>
       </a>
     </div>
     <div v-if="mold === 'quote'" class="article-card">
-      <div class="title">
-        豆瓣App 4.12.0 主要更新
-      </div>
-      <div class="detail">
-        - 可以写读书笔记了，同时支持编辑。随时随地，摘录怦然心动的段落，写下阅读时的随感。来写笔记吧，你...
-      </div>
+      <div class="title"></div>
+      <div class="detail">{{item.status.text}}</div>
     </div>
     <p v-if="mold === 'comment'" class="comment">
       可以写读书笔记了，同时支持编辑。随时随地，摘录怦然心动的段落，写下阅读时的随感。来写笔记吧，你
     </p>
     <div class="info">
-      <span class="btn like"><i>4</i></span>
-      <span v-if="mold === 'quote'" class="btn comment"><i>0</i></span>
-      <span v-if="mold === 'quote'" class="btn retweet"><i>1</i></span>
+      <span class="btn like"><i>{{item.status.like_count}}</i></span>
+      <span v-if="mold === 'quote'" class="btn comment"><i>{{item.status.comments_count}}</i></span>
+      <span v-if="mold === 'quote'" class="btn retweet"><i>{{item.status.reshares_count}}</i></span>
       <span class="btn more"></span>
     </div>
   </div>
@@ -40,7 +36,8 @@ export default {
     mold: {
       type: String,
       required: true
-    }
+    },
+    item:Object
   },
   data () {
     return {}
