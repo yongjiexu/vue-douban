@@ -4,22 +4,22 @@
       <h2>{{title}}</h2>
     </div>
     <ul class="content">
-      <li v-for="item in items">
+      <li v-for="item in items.groups">
         <router-link
           :to="{name: 'SubjectView',
           params: {classify: item.subtype ? item.subtype : 'book',
           id: item.id}}">
           <div class="group-meta">
-            <img v-if="item.images.small" :src="item.images.small" alt="cover">
+            <img v-if="item.avatar" :src="item.avatar" alt="cover">
             <div class="group-info">
-              <span>{{item.title}}</span>
+              <span>{{item.name}}</span>
               <rating v-if="item.rating" :rating="item.rating"></rating>
             </div>
-            <span v-if="item.group_member" class="group-member">20005人</span>
+            <span v-if="item.member_count" class="group-member">{{item.member_count}}人</span>
           </div>
-          <div v-if="item.group_topic" class="group-topic">
-            <span>{{item.group_topic.time}}</span>
-            <span>{{item.group_topic.title}}</span>
+          <div class="group-topic">
+            <!--<span>{{item.group_topic.time}}</span>-->
+            <span>{{item.desc_abstract}}</span>
           </div>
         </router-link>
       </li>
