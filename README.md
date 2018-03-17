@@ -21,7 +21,7 @@ Vue全家桶仿写移动版豆瓣网页。
 - egg.js 生产环境中替换Express
 - MySql/Mongodb 存放后端数据
 - Socket.io 实现实时消息推送
-
+- px2rem 实现px到rem的自动转换
 ## 截图
 
 
